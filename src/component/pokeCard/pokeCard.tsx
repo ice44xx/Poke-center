@@ -2,7 +2,7 @@ import styles from './pokeCard.module.scss';
 
 type PokeProps = {
     name: string;
-    imageUrl: string
+    imageUrl: string;
 }
 
 const PokeCard: React.FC<PokeProps> = ({name, imageUrl}) => {
@@ -10,11 +10,10 @@ const PokeCard: React.FC<PokeProps> = ({name, imageUrl}) => {
         <>
             <div className={styles.container_pokeCard}>
                 <div className={styles.pokeCard}>
-                    <img src={imageUrl} alt={name} />
+                    <img src={imageUrl} alt={name} className={styles.imageUrl} />
                     <p className={styles.name}>{name}</p>
                 </div>
             </div>
-
         </>
     )
 }
