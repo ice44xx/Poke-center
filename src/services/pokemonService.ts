@@ -15,14 +15,12 @@ export type Pokemon = {
     height?: number;
     types?: Types[];
 }
-
 export type Ability = {
      ability: {
           name: string;
           url: string;
      };
 }
-
 export type Types = {
      type: {
           name: string;

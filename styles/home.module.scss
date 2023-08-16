@@ -1,4 +1,5 @@
+@import './colors.scss';
 .container{
-    background-color: #631dc0;
+    background-color: $primary;
     height: 100%;
 }

@@ -71,13 +71,13 @@ const SlidesPokemon = () => {
                                 <div className={styles.abilities}>
                                     <p className={styles.title}>Habilidades</p>
                                     {selectedPokemon?.abilities?.map((abilities, index) => (
-                                        <p key={index} className={styles.skill}>{abilities.ability.name}</p>
+                                        <p key={index} className={styles.skill}>{index + 1} - {abilities.ability.name}</p>
                                     ))}
                                 </div> 
                             </div>
                         </div>
                     </div>
-                    <Pokedex button={<Button onClick={handlePokedexClose} className={styles.close}><img src="/close.png" alt="" /></Button>}/>
+                <Pokedex button={<Button onClick={handlePokedexClose} className={styles.close}><img src="/close.png" alt="" /></Button>}/>
                 </div>
             </div>
         </>
