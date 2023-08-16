@@ -11,9 +11,22 @@ export type Pokemon = {
                 };
           }
      },
-     abilities?: string[];
+     abilities?: Ability[]
     height?: number;
-    types?: string[];
+    types?: Types[];
+}
+
+export type Ability = {
+     ability: {
+          name: string;
+          url: string;
+     };
+}
+
+export type Types = {
+     type: {
+          name: string;
+     }
 }
 
 const pokemonService = {

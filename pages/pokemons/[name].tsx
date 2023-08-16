@@ -70,13 +70,13 @@ const Pokemons = () => {
                                 <div className={styles.abilities}>
                                     <p className={styles.title}>Habilidades</p>
                                     {searchResult?.abilities?.map((abilities, index) => (
-                                        <p className={styles.skill}>{abilities.ability.name}</p>
+                                        <p key={index} className={styles.skill}>{abilities.ability.name}</p>
                                     ))}
                                 </div> 
                             </div>
                         </div>
                     </div>
-                    <Pokedex button={<Button onClick={handlePokedexClose} className={styles.close}>Fechar</Button>}/>
+                    <Pokedex button={<Button onClick={handlePokedexClose} className={styles.close}><img src="/close.png" alt="close button" /></Button>}/>
                 </div>  
             </div> 
             <Footer/>

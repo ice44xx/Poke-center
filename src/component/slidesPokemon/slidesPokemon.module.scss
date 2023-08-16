@@ -14,9 +14,16 @@
         position: absolute;
         .close{
             position: absolute;
+            background-color: transparent;
+            border: none;
             right: 20px;
-            top: 20px;
+            top: 10px;
             cursor: pointer;
+            transition: all 0.3s;
+            &:hover{
+                transform: scale(110%);
+                transition: all 0.3s;
+            }
         }
         .pokeInfo{
             width: 100%;

@@ -9,6 +9,7 @@ const MyApp = ({Component, pageProps}: AppProps) => {
             <Head>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet"></link>
+                <link rel="shortcut icon" href="/fav_two.png" type="image/x-icon" />
             </Head>
             <main>
                 <Component {...pageProps}/>

@@ -5,13 +5,12 @@ import {useRouter} from 'next/router';
 
 const Search = () => {
     const router = useRouter();
-    const [search, setSearch] = useState(true);
     const [searchName, setSearchName] = useState('');
 
     const handleSearch =  async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        router.push(`/pokemons/${searchName}`)
-        setSearchName('')
+        router.push(`/pokemons/${searchName.toLocaleLowerCase()}`);
+        setSearchName('');
     }
 
     return (
