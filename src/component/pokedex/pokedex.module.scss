@@ -1,12 +1,12 @@
 @import '../../../styles/colors.scss';
-.container_pokedex{
+.container_pokedex {
+  max-width: 700px;
+  max-height: 700px;
+  position: relative;
+  .pokedex {
     max-width: 700px;
     max-height: 700px;
-    position: relative;
-    .pokedex{
-        max-width: 700px;
-        max-height: 700px;
-        border-radius: 20px;
-        border: 4px solid $black;
-    }
+    border-radius: 20px;
+    border: 4px solid $black;
+  }
 }

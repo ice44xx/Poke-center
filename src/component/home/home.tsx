@@ -4,12 +4,12 @@ import Navbar from '../header/navbar';
 import SlidesPokemon from '../slidesPokemon/slidesPokemon';
 
 const Home = () => {
-    return (
-        <div className={styles.container}>
-            <Navbar/>
-            <SlidesPokemon/>
-            <Footer/>
-        </div>
-    )
-}
-export default Home
+  return (
+    <div className={styles.container}>
+      <Navbar />
+      <SlidesPokemon />
+      <Footer />
+    </div>
+  );
+};
+export default Home;

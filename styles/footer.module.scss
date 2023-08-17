@@ -1,14 +1,14 @@
 @import './colors.scss';
-.footer{
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    background-color: $black;
-    height: 50px;
-    width: 100%;
-    padding: 0 20px;
-    p{
-        font-size: 30px;
-        color: $white;
-    }
+.footer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: $black;
+  height: 50px;
+  width: 100%;
+  padding: 0 20px;
+  p {
+    font-size: 30px;
+    color: $white;
+  }
 }
