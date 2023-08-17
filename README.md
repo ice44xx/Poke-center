@@ -1,8 +1,8 @@
 ![1](https://github.com/ice44xx/poke-center/assets/112848324/144b43e0-f1a5-4024-9a58-6162c7db5f00)
 
 ## Getting Started
-
-First, run the development server:
+First command, npm install
+Second, run the development server:
 
 ```bash
 npm run dev
