@@ -1,4 +1,5 @@
 import styles from './back.module.scss';
+
 const Background = () => {
     return (
         <>

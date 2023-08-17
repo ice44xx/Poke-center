@@ -1,14 +1,15 @@
-import styles from './slidesPokemon.module.scss'
+import styles from './slidesPokemon.module.scss';
 import pokemonService, { Pokemon } from "@/services/pokemonService";
 import PokeCard from "../pokeCard/pokeCard";
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import { Button } from 'reactstrap';
-import Pokedex from '../pokedex/pokedex';
 import Background from '../background/background';
+import PokedexBox from '../pokedexBox/pokedexBox';
 
 const SlidesPokemon = () => {
     const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
     const [pokedexOpen, setPokedexOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const pokemonsPerPage = 21;
@@ -25,12 +26,12 @@ const SlidesPokemon = () => {
                 });
                 const pokemonData = await Promise.all(pokemonDataPromises);
                 setPokemons(pokemonData);
-                console.log(pokemonData)
+                setLoading(false);
             } catch (error) {
-                console.log('algo errado.')
+                console.log(error);
             }
         } 
-        featchPokemon(currentPage)
+        featchPokemon(currentPage);
     }, [currentPage]);
 
     const handlePokedexOpen = (pokemon: Pokemon) => {
@@ -47,38 +48,20 @@ const SlidesPokemon = () => {
             <div className={styles.container_pokemons}>
                 <Background/>
                 <div className={styles.container_slides_pokemon}>
-                    {pokemons.map((pokemon) => (
-                        <div key={pokemon.name} onClick={() => handlePokedexOpen(pokemon)}>
-                            <PokeCard name={pokemon.name} imageUrl={pokemon.sprites.other['official-artwork'].front_default}/>
+                    {pokemons.map((pokemon, index) => (
+                        <div key={index} onClick={() => handlePokedexOpen(pokemon)}>
+                            <PokeCard loading={loading} name={pokemon.name} imageUrl={pokemon.sprites.other['official-artwork'].front_default}/>
                         </div>
                     ))}
                 </div>
                 <div className={styles.pagination}>
                     <Button className={styles.btn} onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1} >Anterior</Button>
                     <span className={styles.span}>{currentPage}</span>
-                    <Button className={styles.btn} onClick={() => setCurrentPage(currentPage + 1)}>Próxima</Button>
+                    <Button className={styles.btn} onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === 61}>Próxima</Button>
                 </div>
                 <div className={`${styles.containerPokedex} ${pokedexOpen ? styles.activePokedex : ''}`}>
                     <div className={styles.pokedex}>
-                        <div className={styles.pokeCard}>
-                            {selectedPokemon && (
-                                <PokeCard name={selectedPokemon.name} imageUrl={selectedPokemon.sprites.other['official-artwork'].front_default}/>
-                            )}
-                        </div>
-                        <div className={styles.pokeInfo}>
-                            <div className={styles.type}>
-                                {selectedPokemon?.types?.map((type, index) => (
-                                    <p>{index > 0 && ' / '}{type.type.name}</p>
-                                ))}
-                                </div> 
-                                <div className={styles.abilities}>
-                                    <p className={styles.title}>Habilidades</p>
-                                    {selectedPokemon?.abilities?.map((abilities, index) => (
-                                    <p key={index} className={styles.skill}>{index + 1} - {abilities.ability.name}</p>
-                                ))}
-                            </div>                         
-                        </div>
-                        <Pokedex button={<Button onClick={handlePokedexClose} className={styles.close}><img src="/close.png" alt="" /></Button>}/>
+                        <PokedexBox loading={loading} selectedPokemon={selectedPokemon!} handlePokedexClose={handlePokedexClose}/>
                     </div>
                 </div>
             </div>

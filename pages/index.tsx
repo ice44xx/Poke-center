@@ -1,5 +1,5 @@
-import Home from "@/component/home/home"
-import Head from "next/head"
+import Home from "@/component/home/home";
+import Head from "next/head";
 
 const Index = () => {
     return (
@@ -14,4 +14,4 @@ const Index = () => {
     )
 }
 
-export default Index
+export default Index;

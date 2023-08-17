@@ -5,7 +5,7 @@ const Pokedex = ({button}: {button?: ReactNode}) => {
     return (
         <>
             <div className={styles.container_pokedex}>
-                <img src="/pokedex.webp" alt="pokedex" className={styles.pokedex} />
+                <img src="/pokedex.png" alt="pokedex" className={styles.pokedex} />
                 {button}
             </div>
         </>
