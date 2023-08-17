@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     setLoading(true);
   }, []);
