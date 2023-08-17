@@ -1,9 +1,5 @@
+import { PokeProps } from '@/services/pokemonService';
 import styles from './pokeCard.module.scss';
-
-type PokeProps = {
-    name: string;
-    imageUrl: string;
-}
 
 const PokeCard: React.FC<PokeProps> = ({name, imageUrl}) => {
     return(

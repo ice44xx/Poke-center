@@ -5,7 +5,7 @@ const Index = () => {
     return (
         <>
             <Head>
-                <title>Poke Center</title>
+                <title>Poke Center - @nshcode</title>
             </Head>
             <main>
                 <Home/>

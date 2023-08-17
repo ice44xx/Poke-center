@@ -28,6 +28,7 @@
         transition: all 0.3s;
         cursor: pointer;
         background-image: url('/fav_two.png');
+        border: 3px solid $yellow;
     }
     .name{
         position: absolute;

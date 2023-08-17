@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <>
             <div className={styles.footer}>
-                <p>@nshcode</p>
+                <p>nshcode@gmail.com</p>
             </div>
         </>
     )

@@ -26,6 +26,10 @@ export type Types = {
           name: string;
      }
 }
+export type PokeProps = {
+     name: string;
+     imageUrl: string;
+ }
 
 const pokemonService = {
      getAllPokemons: async (offset: number, limit: number) => {

@@ -1,11 +1,12 @@
+@import './colors.scss';
 ::-webkit-scrollbar {
     width: 4px;
 }
 ::-webkit-scrollbar-track {
-    background: #fff;
+    background: $primary;
 }
 ::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: $yellow;
 }
 *{
     margin: 0;

@@ -4,6 +4,7 @@ import PokeCard from "../pokeCard/pokeCard";
 import React, {useState, useEffect} from 'react'
 import { Button } from 'reactstrap';
 import Pokedex from '../pokedex/pokedex';
+import Background from '../background/background';
 
 const SlidesPokemon = () => {
     const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
@@ -34,7 +35,7 @@ const SlidesPokemon = () => {
 
     const handlePokedexOpen = (pokemon: Pokemon) => {
         setPokedexOpen(true);
-        setSelectedPokemon(pokemon)
+        setSelectedPokemon(pokemon);
     }
     const handlePokedexClose = () => {
         setSelectedPokemon(null);
@@ -44,6 +45,7 @@ const SlidesPokemon = () => {
     return (
         <>  
             <div className={styles.container_pokemons}>
+                <Background/>
                 <div className={styles.container_slides_pokemon}>
                     {pokemons.map((pokemon) => (
                         <div key={pokemon.name} onClick={() => handlePokedexOpen(pokemon)}>
@@ -56,28 +58,28 @@ const SlidesPokemon = () => {
                     <span className={styles.span}>{currentPage}</span>
                     <Button className={styles.btn} onClick={() => setCurrentPage(currentPage + 1)}>Próxima</Button>
                 </div>
-                <div className={`${styles.pokedex} ${pokedexOpen ? styles.activePokedex : ''}`}>
-                    <div className={styles.pokeInfo}>
-                        <div className={styles.pokecard}>
+                <div className={`${styles.containerPokedex} ${pokedexOpen ? styles.activePokedex : ''}`}>
+                    <div className={styles.pokedex}>
+                        <div className={styles.pokeCard}>
                             {selectedPokemon && (
                                 <PokeCard name={selectedPokemon.name} imageUrl={selectedPokemon.sprites.other['official-artwork'].front_default}/>
                             )}
-                            <div className={styles.pokeCard_info}>
-                                <div className={styles.type}>
-                                    {selectedPokemon?.types?.map((type, index) => (
-                                        <p>{index > 0 && ' / '}{type.type.name}</p>
-                                    ))}
+                        </div>
+                        <div className={styles.pokeInfo}>
+                            <div className={styles.type}>
+                                {selectedPokemon?.types?.map((type, index) => (
+                                    <p>{index > 0 && ' / '}{type.type.name}</p>
+                                ))}
                                 </div> 
                                 <div className={styles.abilities}>
                                     <p className={styles.title}>Habilidades</p>
                                     {selectedPokemon?.abilities?.map((abilities, index) => (
-                                        <p key={index} className={styles.skill}>{index + 1} - {abilities.ability.name}</p>
-                                    ))}
-                                </div> 
-                            </div>
+                                    <p key={index} className={styles.skill}>{index + 1} - {abilities.ability.name}</p>
+                                ))}
+                            </div>                         
                         </div>
+                        <Pokedex button={<Button onClick={handlePokedexClose} className={styles.close}><img src="/close.png" alt="" /></Button>}/>
                     </div>
-                <Pokedex button={<Button onClick={handlePokedexClose} className={styles.close}><img src="/close.png" alt="" /></Button>}/>
                 </div>
             </div>
         </>
